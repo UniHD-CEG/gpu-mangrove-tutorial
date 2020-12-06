@@ -1,0 +1,4 @@
+my_benchmarks:
+  5p-stencil: [s1, s5]
+  5p-stencil_opt: [s1, s5]
+  kmeans: [s1, s5]

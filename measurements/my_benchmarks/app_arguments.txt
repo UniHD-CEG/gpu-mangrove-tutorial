@@ -1,0 +1,6 @@
+5p-stencil s1 1024 1
+5p-stencil s5 20480 1
+5p-stencil_opt s1 1024 1
+5p-stencil_opt s5 20480 1
+kmeans s1 1024 1
+kmeans s5 61440 1

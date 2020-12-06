@@ -1,0 +1,4 @@
+*.bc
+*.out
+*.ptx
+measurements/log/*
