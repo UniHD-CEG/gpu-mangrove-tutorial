@@ -27,6 +27,10 @@ samples = pd.read_sql_query(
     'select * from samples',
     conn, index_col=['bench','app','dataset','name'])
 
+# Samples can be filtered by index
+# This example get all entry in which the index 1 (app) is equal to 'kmeans'
+# samples[samples.index.get_level_values(1) == 'kmeans']
+
 X = samples[samples.columns[1:-1]]
 y = samples['time']
 
