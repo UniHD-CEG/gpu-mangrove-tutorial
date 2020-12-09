@@ -38,9 +38,9 @@ static inline void __pre_kernel_time_inst() {
   started = true;
 
   // Complete this section here
-  struct timeval mytime;
-  gettimeofday(&mytime, NULL);
-  start = (unsigned long)mytime.tv_sec * 1e6 + (unsigned long)mytime.tv_usec;
+  
+  //start = ??;
+  
   // End of section
 }
 
@@ -53,11 +53,6 @@ static inline void __post_kernel_time_inst() {
 
   unsigned long diff = 0;
   // Complete this section here, store elapsed time in diff
-  cudaDeviceSynchronize();
-
-  struct timeval mytime;
-  gettimeofday(&mytime, NULL);
-  unsigned long stop = (unsigned long)mytime.tv_sec * 1e6 + (unsigned long)mytime.tv_usec;
 
   diff = stop - start;
   // End of section

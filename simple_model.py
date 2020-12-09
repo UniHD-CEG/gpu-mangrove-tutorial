@@ -39,11 +39,9 @@ X_train, X_test, y_train, y_test = train_test_split( X, y, test_size=0.2, random
 
 # Referr to https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html#sklearn.ensemble.RandomForestRegressor
 
-###### This section could be solved by the students
-regr = RandomForestRegressor(n_estimators=100,
-                             criterion='mse',
-                             max_depth=None,
-                             random_state=17)
+###### Complete this section:
+
+# regr = 
 
 ##### End of Section
 
