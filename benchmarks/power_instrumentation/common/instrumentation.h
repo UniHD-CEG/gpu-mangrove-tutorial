@@ -22,11 +22,13 @@
 #endif
 
 #ifdef POWER_INST
+// This could be written by the students
 #define PRE_KERNEL NVMLPowerMeter::get().start(); \
   for (auto start = std::chrono::steady_clock::now(), \
      nvml_now = start; nvml_now < start + std::chrono::milliseconds{1000}; \
      nvml_now = std::chrono::steady_clock::now()) {
 
+// This could be written by the students
 #define POST_KERNEL cudaDeviceSynchronize(); \
   } \
 NVMLPowerMeter::get().stop();
