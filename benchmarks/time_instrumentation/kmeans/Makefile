@@ -5,7 +5,7 @@ SOURCE := main.cu kernels.cu
 all: kmeans
 
 kmeans: ${SOURCE}
-	${NVCC} ${NVCC_FLAGS} ${INC}  $^ -o $@ ${LIBS}
+	${NVCC} ${NVCC_FLAGS} ${INC} ${INST_FLAG}  $^ -o $@ ${LIBS}
 
 clean:
 	rm -f kmeans

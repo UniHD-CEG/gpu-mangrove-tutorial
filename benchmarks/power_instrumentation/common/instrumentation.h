@@ -13,7 +13,6 @@
 #include <thread>
 #include <string>
 
-#define POWER_INST
 
 #ifdef TIME_INST
 #define PRE_KERNEL __pre_kernel_time_inst();
