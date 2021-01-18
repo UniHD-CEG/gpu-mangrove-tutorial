@@ -32,7 +32,7 @@ def main():
                     dataset text not null,
                     build text not null,
                     lseq integer not null,
-                    power integer not null)''')
+                    power real not null)''')
 
     cur_mem.execute("PRAGMA synchronous = OFF")
     #cur_mem.execute("PRAGMA journal_mode = MEMORY")
