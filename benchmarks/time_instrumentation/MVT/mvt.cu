@@ -167,12 +167,12 @@ void mvtCuda(DATA_TYPE* a, DATA_TYPE* x1, DATA_TYPE* x2, DATA_TYPE* y_1, DATA_TY
 	dim3 grid((size_t)ceil((float)N/ ((float)DIM_THREAD_BLOCK_X)), 1);
 	
 	t_start = rtclock();
-	PRE_KERNEL
+	
 	mvt_kernel1<<<grid,block>>>(a_gpu,x1_gpu,y_1_gpu, p_size);
-	POST_KERNEL
-	PRE_KERNEL
+	
+	
 	mvt_kernel2<<<grid,block>>>(a_gpu,x2_gpu,y_2_gpu, p_size);
-	POST_KERNEL
+	
 	cudaThreadSynchronize();
 	t_end = rtclock();
 	fprintf(stdout, "GPU Runtime: %0.6lfs\n", t_end - t_start);

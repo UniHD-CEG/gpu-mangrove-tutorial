@@ -219,17 +219,17 @@ void covarianceCuda(DATA_TYPE* data, DATA_TYPE* symmat, DATA_TYPE* mean, DATA_TY
 	
 	t_start = rtclock();
 	
-	PRE_KERNEL
+	
 	mean_kernel<<<grid1, block1>>>(mean_gpu,data_gpu, p_size);
-	POST_KERNEL
+	
 	cudaThreadSynchronize();
-	PRE_KERNEL
+	
 	reduce_kernel<<<grid2, block2>>>(mean_gpu,data_gpu, p_size);
-	POST_KERNEL
+	
 	cudaThreadSynchronize();
-	PRE_KERNEL
+	
 	covar_kernel<<<grid3, block3>>>(symmat_gpu,data_gpu, p_size);
-	POST_KERNEL
+	
 	cudaThreadSynchronize();
 	t_end = rtclock();
 	fprintf(stdout, "GPU Runtime: %0.6lfs\n", t_end - t_start);

@@ -168,9 +168,9 @@ void gemmCuda(DATA_TYPE* A, DATA_TYPE* B, DATA_TYPE* C, DATA_TYPE* C_outputFromG
 
 	t_start = rtclock();
 
-	PRE_KERNEL
+	
 	gemm_kernel<<< grid, block >>>(A_gpu, B_gpu, C_gpu, p_size);
-	POST_KERNEL
+	
 	cudaThreadSynchronize();
 
 	t_end = rtclock();

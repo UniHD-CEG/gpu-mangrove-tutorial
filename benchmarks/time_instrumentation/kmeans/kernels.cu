@@ -34,10 +34,10 @@ void kmeans_cluster_assignment_wrapper(int grid_size, int block_size,
                                        float *data, int *data_ca,
                                        float *centroids, int numData,
                                        int numCluster, int numDimensions) {
-  PRE_KERNEL
+  
   kmeans_cluster_assignment<<<grid_size, block_size>>>(
       data, data_ca, centroids, numData, numCluster, numDimensions);
-  POST_KERNEL
+  
 }
 
 __global__ void kmeans_centroid_sum(float *data, int *data_ca, float *centroids,
@@ -79,13 +79,13 @@ void kmeans_centroid_sum_wrapper(int grid_size, int block_size, float *data,
                                  int *data_ca, float *centroids,
                                  int *cluster_count, int numData,
                                  int numCluster, int numDimensions) {
-  PRE_KERNEL
+  
   kmeans_centroid_sum<<<grid_size, block_size,
                         block_size *(sizeof(int) +
                                      numDimensions * sizeof(float))>>>(
       data, data_ca, centroids, cluster_count, numData, numCluster,
       numDimensions);
-  POST_KERNEL
+  
 }
 
 __global__ void kmeans_centroid_update(float *centroids, int *cluster_count,
@@ -100,8 +100,8 @@ __global__ void kmeans_centroid_update(float *centroids, int *cluster_count,
 void kmeans_centriod_update_wrapper(int grid_size, int block_size,
                                     float *centroids, int *cluster_count,
                                     int numCluster, int numDimensions) {
-  PRE_KERNEL
+  
   kmeans_centroid_update<<<grid_size, block_size>>>(centroids, cluster_count,
                                                     numCluster, numDimensions);
-  POST_KERNEL
+  
 }

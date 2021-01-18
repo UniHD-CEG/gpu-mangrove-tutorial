@@ -169,13 +169,13 @@ void ataxGpu(DATA_TYPE* A, DATA_TYPE* x, DATA_TYPE* y, DATA_TYPE* tmp, DATA_TYPE
 	dim3 grid2((size_t)(ceil( ((float)NY) / ((float)block.x) )), 1);
 
 	t_start = rtclock();
-	PRE_KERNEL
+	
 	atax_kernel1<<< grid1, block >>>(A_gpu,x_gpu,tmp_gpu, p_size);
-	POST_KERNEL
+	
 	cudaThreadSynchronize();
-	PRE_KERNEL
+	
 	atax_kernel2<<< grid2, block >>>(A_gpu,y_gpu,tmp_gpu, p_size);
-	POST_KERNEL
+	
 	cudaThreadSynchronize();
 	t_end = rtclock();
 	fprintf(stdout, "GPU Runtime: %0.6lfs\n", t_end - t_start);

@@ -30,9 +30,9 @@ void simpleStencil_Kernel_Wrapper(int gridSize, int blockSize, int size,
   dim3 grid_dim = dim3(gridSize);
   dim3 block_dim = dim3(blockSize);
 
-  PRE_KERNEL
+  
   simpleStencil_Kernel<<<grid_dim, block_dim>>>(size, grid_old, grid_new);
-  POST_KERNEL
+  
 }
 
 // optimized Stencil Code Kernel for the heat calculation
@@ -86,8 +86,8 @@ void optStencil_Kernel_Wrapper(int gridSize, int blockSize, int shm_size,
   dim3 grid_dim = dim3(gridSize);
   dim3 block_dim = dim3(blockSize);
 
-  PRE_KERNEL
+  
   optStencil_Kernel<<<grid_dim, block_dim, shm_size>>>(size, grid_old,
                                                        grid_new);
-  POST_KERNEL
+  
 }

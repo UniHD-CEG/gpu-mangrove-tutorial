@@ -22,15 +22,12 @@
 
 #ifdef POWER_INST
 // This could be written by the students
-#define PRE_KERNEL NVMLPowerMeter::get().start(); \
-  for (auto start = std::chrono::steady_clock::now(), \
-     nvml_now = start; nvml_now < start + std::chrono::milliseconds{1000}; \
-     nvml_now = std::chrono::steady_clock::now()) {
+#define PRE_KERNEL /* Implement here! \
+                    you can use multiple lines */
 
 // This could be written by the students
-#define POST_KERNEL cudaDeviceSynchronize(); \
-  } \
-NVMLPowerMeter::get().stop();
+#define POST_KERNEL /* Implement here! \
+                    you can use multiple lines */
 
 #define OUT_FILE_NAME "kernelpower.csv"
 #endif
@@ -67,8 +64,8 @@ static inline void __pre_kernel_time_inst() {
 
   // Complete this section here
   struct timeval mytime;
-  gettimeofday(&mytime, NULL);
-  start = (unsigned long)mytime.tv_sec * 1e6 + (unsigned long)mytime.tv_usec;
+  /*...*/
+  // start = ...;
   // End of section
 }
 
@@ -81,14 +78,12 @@ static inline void __post_kernel_time_inst() {
 
   unsigned long diff = 0;
   // Complete this section here, store elapsed time in diff
-  cudaDeviceSynchronize();
-
+  
   struct timeval mytime;
-  gettimeofday(&mytime, NULL);
-  unsigned long stop =
-      (unsigned long)mytime.tv_sec * 1e6 + (unsigned long)mytime.tv_usec;
+  /*...*/
+  //unsigned long stop = ...;
 
-  diff = stop - start;
+
   // End of section
 
   printf("Duration: %lu\n", diff);
