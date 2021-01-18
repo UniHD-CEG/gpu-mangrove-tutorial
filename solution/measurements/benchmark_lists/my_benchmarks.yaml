@@ -1,0 +1,8 @@
+my_benchmarks:
+  5p-stencil: [s1, s2, s3, s4, s5]
+  5p-stencil_opt: [s1, s2, s3, s4, s5]
+  kmeans: [s1, s2, s3, s4 s5]
+  2DConvolution: [s1, s2, s3, s4, s5]
+  atax: [s1, s2, s3, s4]
+  gemm: [s1, s2, s3, s4]
+  mvt: [s1, s2, s3, s4]
